@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+div.mainform {
+    width:15%;
+    float:left;
+}
+        div.maincanvas {
+            width:85%;
+            float:left;
+        }
+
+    </style>
+
+    <script>
+
+        function writeLetters() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            //ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
+            var canvas_width = 480;
+            var x = canvas_width / 2;
+            var fontsize = 75;
+            var y = fontsize + 10;
+            var v_space = 20;
+
+            ctx.font = "75px Arial";
+            ctx.clearRect(0,0,480,720);
+
+            var line1 = document.getElementById("line1").value.toUpperCase();
+            var line2 = document.getElementById("line2").value.toUpperCase();
+            var line3 = document.getElementById("line3").value.toUpperCase();
+            var line4 = document.getElementById("line4").value.toUpperCase();
+            var line5 = document.getElementById("line5").value.toUpperCase();
+            var line6 = document.getElementById("line6").value.toUpperCase();
+            var line7 = document.getElementById("line7").value.toUpperCase();
+            ctx.fillText(line1, x, y);
+            ctx.moveTo(0, y+v_space);
+            ctx.lineTo(480, y+v_space);
+            ctx.stroke();
+            y += fontsize + v_space;
+
+            ctx.fillText(line2, x, y);
+            ctx.moveTo(0, y+v_space);
+            ctx.lineTo(480, y+v_space);
+            ctx.stroke();
+            y += fontsize + v_space;
+
+            ctx.fillText(line3, x, y);
+            ctx.moveTo(0, y+v_space);
+            ctx.lineTo(480, y+v_space);
+            ctx.stroke();
+            ctx.fillRect(0,y - (fontsize / 2) - 10,10,40);
+            ctx.fillRect(470,y - (fontsize / 2) - 10,10,40);
+            y += fontsize + v_space;
+
+            ctx.fillText(line4, x, y);
+            ctx.moveTo(0, y+v_space);
+            ctx.lineTo(480, y+v_space);
+            ctx.stroke();
+            y += fontsize + v_space;
+
+            ctx.fillText(line5, x, y);
+            ctx.moveTo(0, y+v_space);
+            ctx.lineTo(480, y+v_space);
+            ctx.stroke();
+            y += fontsize + v_space;
+
+            ctx.fillText(line6, x, y);
+            ctx.moveTo(0, y+v_space);
+            ctx.lineTo(480, y+v_space);
+            ctx.stroke();
+            y += fontsize + v_space;
+
+            ctx.fillText(line7, x, y);
+            ctx.moveTo(0, y+v_space);
+            ctx.lineTo(480, y+v_space);
+            ctx.stroke();
+            y += fontsize + v_space;
+        }
+    </script>
+
+            <body>
+
+                <div class="mainform">
+                    <form>
+                        <label for="line1">Line 1:</label><br>
+                        <input type="text" id="line1" name="line1" size="12"><br>
+                        <label for="line2">Line 2:</label><br>
+                        <input type="text" id="line2" name="line2" size="12"><br>
+                        <label for="line3">Line 3:</label><br>
+                        <input type="text" id="line3" name="line3" size="12"><br>
+                        <label for="line4">Line 4:</label><br>
+                        <input type="text" id="line4" name="line4" size="12"><br>
+                        <label for="line5">Line 5:</label><br>
+                        <input type="text" id="line5" name="line5" size="12"><br>
+                        <label for="line6">Line 6:</label><br>
+                        <input type="text" id="line6" name="line6" size="12"><br>
+                        <label for="line7">Line 7:</label><br>
+                        <input type="text" id="line7" name="line7" size="12"><br><br>
+                    </form> 
+                    <br>
+                    <button type="button" onclick="javascript:writeLetters()">Submit</button>
+                    <h3>Extra Symbols</h3>
+                    <p>&#x2605; &#x2192; &#x2190; &#x2022; &#x00A2;</p>
+                </div>
+
+                <div class="maincanvas">
+                    <canvas id="myCanvas" width="480" height="720" style="border:1px solid #d3d3d3;">
+                        Your browser does not support the HTML canvas tag.</canvas>
+                </div>
+
+
+            </body>
+</html>
+
