@@ -19,6 +19,8 @@ div.mainform {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
             //ctx.textBaseline = "middle";
+
+
             ctx.textAlign = "center";
             var canvas_width = 480;
             var x = canvas_width / 2;
@@ -79,6 +81,10 @@ div.mainform {
             ctx.lineTo(480, y+v_space);
             ctx.stroke();
             y += fontsize + v_space;
+
+            ctx.globalCompositeOperation = 'destination-over'
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, c.width, c.height);
         }
     </script>
 
