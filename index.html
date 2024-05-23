@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>A-Sign Builder</title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head>
+    <head>
+        <title>A-Sign Builder</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head>
 
     <style>
+p.one { 
+    display: inline;
+    font-size: 200%;
+    letter-spacing: 5px;
+}
+
 div.mainform {
     width:15%;
     float:left;
@@ -17,7 +23,24 @@ div.mainform {
 
     </style>
 
+    <script src="jquery.js"></script>
+
     <script>
+
+        // prime with empty jQuery object
+        window.prevFocus = $();
+
+        // Catch any bubbling focusin events (focus does not bubble)
+        $(document).on('focusin', ':input', function () {
+
+            // Save the previously clicked value for later
+            window.prevFocus = $(this);
+        });
+
+        function addSymbol(symbol) {
+            window.prevFocus[0].value = window.prevFocus[0].value + symbol;
+            window.prevFocus[0].focus();
+        }
 
         function writeLetters() {
             var c = document.getElementById("myCanvas");
@@ -93,38 +116,47 @@ div.mainform {
         }
     </script>
 
-            <body>
+    <body>
 
-                <div class="mainform">
-                    <form>
-                        <label for="line1">Line 1:</label><br>
-                        <input type="text" id="line1" name="line1" size="12"><br>
-                        <label for="line2">Line 2:</label><br>
-                        <input type="text" id="line2" name="line2" size="12"><br>
-                        <label for="line3">Line 3:</label><br>
-                        <input type="text" id="line3" name="line3" size="12"><br>
-                        <label for="line4">Line 4:</label><br>
-                        <input type="text" id="line4" name="line4" size="12"><br>
-                        <label for="line5">Line 5:</label><br>
-                        <input type="text" id="line5" name="line5" size="12"><br>
-                        <label for="line6">Line 6:</label><br>
-                        <input type="text" id="line6" name="line6" size="12"><br>
-                        <label for="line7">Line 7:</label><br>
-                        <input type="text" id="line7" name="line7" size="12"><br><br>
-                    </form> 
-                    <br>
-                    <button type="button" onclick="javascript:writeLetters()">Submit</button>
-                    <h3>Symbols</h3>
-                    <p style="font-size:200%;">& % $ , . - :</p>
-                    <p style="font-size:200%;">&#x2605; &#x2192; &#x2190; &#x2022; &#x00A2;</p>
-                </div>
+        <div class="mainform">
+                <label for="line1">Line 1:</label><br>
+                <input type="text" id="line1" name="line1" size="12"><br>
+                <label for="line2">Line 2:</label><br>
+                <input type="text" id="line2" name="line2" size="12"><br>
+                <label for="line3">Line 3:</label><br>
+                <input type="text" id="line3" name="line3" size="12"><br>
+                <label for="line4">Line 4:</label><br>
+                <input type="text" id="line4" name="line4" size="12"><br>
+                <label for="line5">Line 5:</label><br>
+                <input type="text" id="line5" name="line5" size="12"><br>
+                <label for="line6">Line 6:</label><br>
+                <input type="text" id="line6" name="line6" size="12"><br>
+                <label for="line7">Line 7:</label><br>
+                <input type="text" id="line7" name="line7" size="12"><br><br>
+            <br>
+            <button type="button" onclick="javascript:writeLetters()">Submit</button>
+            <h3>Symbols</h3>
+            <p class="one" onclick="javascript:addSymbol('&')">&</p>
+            <p class="one" onclick="javascript:addSymbol('%')">%</p>
+            <p class="one" onclick="javascript:addSymbol('$')">$</p>
+            <p class="one" onclick="javascript:addSymbol(',')">,</p>
+            <p class="one" onclick="javascript:addSymbol('.')">.</p>
+            <p class="one" onclick="javascript:addSymbol('-')">-</p>
+            <p class="one" onclick="javascript:addSymbol(':')">:</p>
+            <br>
+            <p class="one" onclick="javascript:addSymbol('\u2605')">&#x2605</p>
+            <p class="one" onclick="javascript:addSymbol('\u2192')">&#x2192</p>
+            <p class="one" onclick="javascript:addSymbol('\u2190')">&#x2190</p>
+            <p class="one" onclick="javascript:addSymbol('\u2022')">&#x2022</p>
+            <p class="one" onclick="javascript:addSymbol('\u00a2')">&#x00a2</p>
+        </div>
 
-                <div class="maincanvas">
-                    <canvas id="myCanvas" width="480" height="720" style="border:1px solid #d3d3d3;">
-                        Your browser does not support the HTML canvas tag.</canvas>
-                </div>
+        <div class="maincanvas">
+            <canvas id="myCanvas" width="480" height="720" style="border:1px solid #d3d3d3;">
+                Your browser does not support the HTML canvas tag.</canvas>
+        </div>
 
 
-            </body>
+    </body>
 </html>
 
