@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     </head>
 
-    <style>
+<style>
 p.one { 
     display: inline;
     font-size: 200%;
@@ -23,6 +23,34 @@ div.mainform {
             width:480px;
             float:left;
         }
+        @media print {
+            /* Add your custom css rules here */
+            input {
+                display: none;
+            }
+            label {
+                display: none;
+            }
+            button {
+                display: none;
+            }
+            p.one {
+                display: none;
+            }
+            h3 {
+                display: none;
+            }
+            @page 
+                {
+                size:  auto;   /* auto is the initial value */
+                margin: 0mm;  /* this affects the margin in the printer settings */
+            }
+
+            canvas
+                {
+                margin: 10mm 15mm 10mm 15mm; /* margin you want for the content */
+            }
+        }
 
     </style>
 
@@ -39,6 +67,7 @@ div.mainform {
             // Save the previously clicked value for later
             window.prevFocus = $(this);
         });
+
 
         function addSymbol(symbol) {
             window.prevFocus[0].value = window.prevFocus[0].value + symbol;
