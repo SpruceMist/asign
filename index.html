@@ -91,13 +91,13 @@ div.mainform {
             ctx.font = "75px Arial";
             ctx.clearRect(0,0,480,720);
 
-            var line1 = document.getElementById("line1").value.toUpperCase();
-            var line2 = document.getElementById("line2").value.toUpperCase();
-            var line3 = document.getElementById("line3").value.toUpperCase();
-            var line4 = document.getElementById("line4").value.toUpperCase();
-            var line5 = document.getElementById("line5").value.toUpperCase();
-            var line6 = document.getElementById("line6").value.toUpperCase();
-            var line7 = document.getElementById("line7").value.toUpperCase();
+            var line1 = document.getElementById("line1").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
+            var line2 = document.getElementById("line2").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
+            var line3 = document.getElementById("line3").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
+            var line4 = document.getElementById("line4").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
+            var line5 = document.getElementById("line5").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
+            var line6 = document.getElementById("line6").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
+            var line7 = document.getElementById("line7").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
             ctx.fillText(line1, x, y);
             ctx.moveTo(0, y+v_space);
             ctx.lineTo(480, y+v_space);
