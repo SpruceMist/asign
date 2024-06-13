@@ -10,9 +10,15 @@ p.one {
     display: inline;
     font-size: 200%;
     letter-spacing: 5px;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #f1f1f1;
+    padding: 2px;
+    border-radius: 5px;
 }
 p.one:hover {
-    background-color: #f1f1f1;
+    background-color: #d8d8d8;
 }
 
 div.mainform {
@@ -25,6 +31,10 @@ div.mainform {
         }
         @media print {
             /* Add your custom css rules here */
+            div.mainform {
+                /* width:0%;
+                z-index: 0; */
+            }
             input {
                 display: none;
             }
@@ -50,6 +60,7 @@ div.mainform {
                 {
                 margin: 10mm 15mm 10mm 15mm; /* margin you want for the content */
             }
+
         }
 
     </style>
@@ -175,7 +186,7 @@ div.mainform {
             <p class="one" onclick="javascript:addSymbol('.')">.</p>
             <p class="one" onclick="javascript:addSymbol('-')">-</p>
             <p class="one" onclick="javascript:addSymbol(':')">:</p>
-            <br>
+            <br><br>
             <p class="one" onclick="javascript:addSymbol('\u2605')">&#x2605</p>
             <p class="one" onclick="javascript:addSymbol('\u2192')">&#x2192</p>
             <p class="one" onclick="javascript:addSymbol('\u2190')">&#x2190</p>
