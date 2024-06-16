@@ -80,9 +80,11 @@ div.mainform {
             window.prevFocus = $(this);
         });
 
-
         function addSymbol(symbol) {
-            window.prevFocus[0].value = window.prevFocus[0].value + symbol;
+            var position = window.prevFocus[0].selectionStart;
+            var oldString = window.prevFocus[0].value
+            var newString = [oldString.slice(0,position), symbol, oldString.slice(position)].join('');
+            window.prevFocus[0].value = newString;
             window.prevFocus[0].focus();
         }
 
