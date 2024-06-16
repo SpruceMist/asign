@@ -26,7 +26,7 @@ div.mainform {
     float:left;
 }
         div.maincanvas {
-            width:480px;
+            width:600px;
             float:left;
         }
         @media print {
@@ -57,7 +57,9 @@ div.mainform {
 
             canvas
                 {
-                margin: 3mm 15mm 5mm 25mm; /* margin you want for the content */
+                /* Top Right Bottom Left*/
+                margin: 3mm 20mm 5mm 21mm; /* margin you want for the content */
+                zoom: 125%;
             }
 
         }
@@ -91,15 +93,15 @@ div.mainform {
 
 
             ctx.textAlign = "center";
-            var canvas_width = 600;
+            var canvas_width = 480;
             var x = canvas_width / 2;
-            var fontsize = 93;
-            var y = fontsize + 13;
-            var v_space = 25;
+            var fontsize = 75;
+            var y = fontsize + 10;
+            var v_space = 20;
 
             ctx.fillStyle = "black";
-            ctx.font = "93px Arial";
-            ctx.clearRect(0,0,600,900);
+            ctx.font = "75px Arial";
+            ctx.clearRect(0,0,480,720);
 
             var line1 = document.getElementById("line1").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
             var line2 = document.getElementById("line2").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
@@ -110,45 +112,45 @@ div.mainform {
             var line7 = document.getElementById("line7").value.toUpperCase().replace(/[^a-zA-Z\d\s\u2605\u2192\u2190\u2022\u00a2(&%$,.:)-]/g,'');
             ctx.fillText(line1, x, y);
             ctx.moveTo(0, y+v_space);
-            ctx.lineTo(600, y+v_space);
+            ctx.lineTo(canvas_width, y+v_space);
             ctx.stroke();
             y += fontsize + v_space;
 
             ctx.fillText(line2, x, y);
             ctx.moveTo(0, y+v_space);
-            ctx.lineTo(600, y+v_space);
+            ctx.lineTo(canvas_width, y+v_space);
             ctx.stroke();
             y += fontsize + v_space;
 
             ctx.fillText(line3, x, y);
             ctx.moveTo(0, y+v_space);
-            ctx.lineTo(600, y+v_space);
+            ctx.lineTo(canvas_width, y+v_space);
             ctx.stroke();
-            ctx.fillRect(0,y - (fontsize / 2) - 13,13,50);
-            ctx.fillRect(587,y - (fontsize / 2) - 13,13,50);
+            ctx.fillRect(0,y - (fontsize / 2) - 10,10,40);
+            ctx.fillRect(canvas_width - 10,y - (fontsize / 2) - 10,10,40);
             y += fontsize + v_space;
 
             ctx.fillText(line4, x, y);
             ctx.moveTo(0, y+v_space);
-            ctx.lineTo(600, y+v_space);
+            ctx.lineTo(canvas_width, y+v_space);
             ctx.stroke();
             y += fontsize + v_space;
 
             ctx.fillText(line5, x, y);
             ctx.moveTo(0, y+v_space);
-            ctx.lineTo(600, y+v_space);
+            ctx.lineTo(canvas_width, y+v_space);
             ctx.stroke();
             y += fontsize + v_space;
 
             ctx.fillText(line6, x, y);
             ctx.moveTo(0, y+v_space);
-            ctx.lineTo(600, y+v_space);
+            ctx.lineTo(canvas_width, y+v_space);
             ctx.stroke();
             y += fontsize + v_space;
 
             ctx.fillText(line7, x, y);
             ctx.moveTo(0, y+v_space);
-            ctx.lineTo(600, y+v_space);
+            ctx.lineTo(canvas_width, y+v_space);
             ctx.stroke();
             y += fontsize + v_space;
 
@@ -194,7 +196,7 @@ div.mainform {
         </div>
 
         <div class="maincanvas">
-            <canvas id="myCanvas" width="600" height="900" style="border:1px solid #000000;">
+            <canvas id="myCanvas" width="480" height="720" style="border:1px solid #000000;">
                 Your browser does not support the HTML canvas tag.</canvas>
         </div>
 
